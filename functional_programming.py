@@ -115,18 +115,42 @@ print(list(numbers(11)))
 # End Generators
 ####################################################################
 ####################################################################
-# Start codeA
+# Start prime numbers
 
+# prime numbers
+def isPrime(x):
+    if x < 2:
+        return False
+    elif x == 2:
+        return True
+    for n in range(2, x):
+        if x % n ==0:
+            return False
+    return True
 
+def primeGenerator(a, b):
+    for i in range(a,b):
+        print(f'The value of i inside for loop {i}.')
+        if isPrime(i):
+            print(f'The value of i after isPrime call {i}.')
+            print(f'The value of i before yield call {i}.')
+            yield i
+            print(f'The value of i after yield call {i}.')
+            i +=1
 
-# End codeA
+# f = int(input())
+# t = int(input())
+
+print(list(primeGenerator(10, 20)))
+
+# End prime numbers
 ####################################################################
 ####################################################################
-# Start codeA
+# Start Decorators
 
 
 
-# End codeA
+# End Decorators
 ####################################################################
 ####################################################################
 # Start codeA
