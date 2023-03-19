@@ -143,21 +143,155 @@ def primeGenerator(a, b):
 
 print(list(primeGenerator(10, 20)))
 
+def make_word():
+  word = ""
+  for ch in "spam":
+    word +=ch
+    print(f'before yield = {word}')
+    yield word
+    print(f'after yield = {word}')
+
+f = list(make_word())
+print(f)
+
 # End prime numbers
 ####################################################################
 ####################################################################
 # Start Decorators
+# Decorators
+def decor(func):
+    def wrap():
+        print("============")
+        func()
+        print("============")
 
+    return wrap
+
+
+def print_text():
+    print("Hello world!")
+
+
+decorated = decor(print_text)
+decorated()
+
+
+# explicitly call vs implicitly call a decor function
+def decor(func):
+    def wrap():
+        print("============")
+        func()
+        print("============")
+    return wrap
+
+def print_text():
+    print("Hello world!")
+
+print_text = decor(print_text)
+
+print_text();
+
+# or
+
+def decor(func):
+    def wrap():
+        print("============")
+        func()
+        print("============")
+    return wrap
+
+@decor
+def print_text():
+    print("Hello world!")
+
+print_text();
+
+def decor(func):
+    def wrap(v):
+        print("***")
+        func(v)
+        print("***")
+    return wrap
+
+@decor
+def invoice(v):
+    print(f'INVOICE # {v}')
+
+v = '10'
+print(type(v))
+invoice(v)
+
+def decor(func):
+    def wrap(*t, **d):
+        print("***")
+        func(*t, **d)
+        print("***")
+    return wrap
+
+@decor
+def invoice(v):
+    print(f'INVOICE # {v}')
+
+v = '10'
+print(type(v))
+invoice(v)
 
 
 # End Decorators
 ####################################################################
 ####################################################################
-# Start codeA
+# Start Recursion
+
+# Recursion
+# Recursion Behave of function
+def factorial(x):
+    if x == 1:
+        return 1
+    else:
+        print(f'The factorial Function call = {x}')
+        return x * factorial(x-1)
+        # 1. x = 5; 5 * factorial(4)
+                        # 2. x = 4; 4 * factorial(3)
+                                        # 3. x = 3; 3 * factorial(2)
+                                                        # 4. x = 2; 2 * factorial(1)
+# ------Recursively factorial function call ; Result = 120;
+print(factorial(5))
 
 
+def is_even(x):
+    if x == 0:
+        return True
+    else:
+        return is_odd(x-1)
+def is_odd(x):
+    return not is_even(x)
 
-# End codeA
+print(is_odd(17))
+print(is_even(23))
+
+# Decimal to Binary
+def convert(num):
+    if num == 0:
+        return 0
+    elif num == 1:
+        return 1
+    else:
+        return ((num % 2) + (10 * convert(num // 2)))
+
+print(convert(int(input())))
+
+def fib(x):
+  if x == 0 or x == 1:
+    return 1
+  else:
+    return fib(x-1) + fib(x-2)
+  #             3           2
+  #          2    1       1    0
+  #        1  0   1       1    1
+  #        1  1   1       1    1
+print(fib(4))
+
+# End Recursion
 ####################################################################
 ####################################################################
 # Start codeA
