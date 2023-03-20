@@ -294,11 +294,25 @@ print(fib(4))
 # End Recursion
 ####################################################################
 ####################################################################
-# Start codeA
+# Start *args and **kwargs
 
+# *args and **kwargs
+# *args
+# Do not understand 'The parameter *args must come after the named parameters to a function.'
+def function(*args):
+    # print(named_arg)
+    print(args)
 
+function(1, 2, 3, 4, 5)
 
-# End codeA
+# **kwargs
+
+def my_func(x, y=7, *args, **kwargs):
+    print(kwargs)
+
+my_func(2, 3, 4, 5, 6, a=7, b=8)
+
+# End *args and **kwargs
 ####################################################################
 ####################################################################
 # Start codeA
