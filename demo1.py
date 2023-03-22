@@ -13,5 +13,5 @@ def my_min(*args):
         print(args[vIndex])
         print(min)
         vIndex += 1
-    return 'HI'
-my_min(8, 13, 4, 42, 120, 7)
+    return min
+print(my_min(8, 13, 4, 42, 120, 7))
