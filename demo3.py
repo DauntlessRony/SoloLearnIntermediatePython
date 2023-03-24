@@ -1,12 +1,17 @@
-def decor(func):
-    def wrap():
-        print("============")
-        func()
-        print("============")
-    return wrap
+# Inheritance
+class Animal:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
 
-@decor
-def print_text():
-    print("Hello world!")
+class Cat(Animal):
+    def purr(self):
+        print("Purr...")
 
-print_text();
+class Dog(Animal):
+    def bark(self):
+        print("Woof!")
+
+fido = Dog("Fido", "brown")
+print(fido.color)
+fido.bark()

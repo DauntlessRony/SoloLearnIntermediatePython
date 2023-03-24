@@ -1,7 +1,11 @@
-from random import randint
+# Inheritance
+class A:
+  def method(self):
+    print(1)
 
-def roll(**dice):
-    print(type(dice))
-    # return print(sum(randint(1, die) for die in dice))
-
-roll({1:2})
+class B(A):
+  def method(self):
+    print(2)
+print(type(B()))
+print(type(B().method()))
+B().method()

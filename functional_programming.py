@@ -317,6 +317,79 @@ my_func(2, 3, 4, 5, 6, a=7, b=8)
 ####################################################################
 # Start codeA
 
+#-------------------------------------------------------------------
+# take any number of variables and find the min
+def my_min(*args):
+    print(f'type of args {type(args)}')
+    print(f'value of args {args}')
+    min = args[0]
+    vIndex = 0
+    for i in args:
+        print(f'value of args[{vIndex}] = {i}')
+        print(args[vIndex])
+        print(min)
+        if args[vIndex] < min:
+            min = args[vIndex]
+        print(args[vIndex])
+        print(min)
+        vIndex += 1
+    return min
+print(my_min(8, 13, 4, 42, 120, 7))
+#-------------------------------------------------------------------
+nums = {1, 2, 3, 4, 5, 6}
+nums = {0, 1, 2, 3} & nums
+nums = filter(lambda x: x > 1, nums)
+print(len(list(nums)))
+#-------------------------------------------------------------------
+def power(x, y):
+  if y == 0:
+    return 1
+  else:
+    return x * power(x, y-1)
+  # 2 * power(2,2)
+        # 2 * power(2,1)
+              # 2 * power(2,0)
+                    # 1
+  # 2 * 2 * 2 * 1
+        # 2 * 2 * 1
+              # 2 * 1
+                    # 1
+print(power(2, 3))
+#-------------------------------------------------------------------
+nums = [1, 2, 8, 3, 7]
+
+res = list(filter(lambda x: x%2 == 0, nums))
+print(res)
+#-------------------------------------------------------------------
+def func(**kwargs):
+  print(kwargs["zero"]) # key = zero and value = 8
+
+func(a = 0, zero = 8)
+#-------------------------------------------------------------------
+def spell(txt):
+    print(txt)
+    print(type(txt))
+    print(len(txt))
+    vIndex = len(txt)-1
+    for i in txt:
+        print(vIndex)
+        print(txt[vIndex])
+        vIndex -= 1
+
+txt = 'HELLO'
+spell(txt)
+
+#-------------------------------------------------------------------
+def spell(txt):
+    vIndex = len(txt)-1
+    for i in txt:
+        print(txt[vIndex])
+        vIndex -= 1
+
+txt = 'HELLO'
+spell(txt)
+
+#-------------------------------------------------------------------
 
 
 # End codeA

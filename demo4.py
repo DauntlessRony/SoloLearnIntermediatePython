@@ -1,13 +1,15 @@
-def double(f):
-    print(type(f))
-    def aux(*xs, **kws):
-        print(type(xs))
-        print(type(kws))
-        return 2 * f(*xs, **kws)
-    return aux
+# Inheritance
+class Wolf:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
 
-@double
-def function(a):
-    return 10 + a
+    def bark(self):
+        print("Grr...")
 
-print (function(3)) # Prints 26, namely 2 * (10 + 3)
+class Dog(Wolf):
+    def bark(self):
+        print("Woof")
+
+husky = Dog("Max", "grey")
+husky.bark()
